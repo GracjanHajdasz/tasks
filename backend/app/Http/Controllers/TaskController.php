@@ -26,7 +26,7 @@ class TaskController extends Controller
      //GET /api/tasks/{id}
     public function show(Task $task)
     {
-        return response()->json($task);
+        return response()->json($task, 200);
     }
 
     //PUT /api/tasks/{id}
@@ -41,7 +41,7 @@ class TaskController extends Controller
 
         $task->update($validated);
 
-        return response()->json($task);
+        return response()->json($task, 200);
     }
 
     //DELETE /api/tasks/{id}
@@ -49,6 +49,6 @@ class TaskController extends Controller
     {
         $task->delete();
 
-        return response()->json(['message' => 'Zadanie usunięte']);
+        return response()->json(['message' => 'Zadanie usunięte'], 200);
     }
 }
