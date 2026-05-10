@@ -1,0 +1,21 @@
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard div {
+  width: 32%;
+}
+
+.todo {
+  background-color: grey;
+}
+
+.in-progress {
+  background-color: aquamarine;
+}
+
+.done {
+  background-color: green;
+}
