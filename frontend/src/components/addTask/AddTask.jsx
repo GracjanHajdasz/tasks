@@ -1,4 +1,5 @@
 import "./AddTask.css";
+import { RxCross1 } from "react-icons/rx";
 import axios from "axios";
 import { use, useEffect, useState } from "react";
 
@@ -24,13 +25,14 @@ export default function AddTask({ setShowAddTask, fetchTasks }) {
         .then((response) => {
           console.log(response);
           fetchTasks();
+          setShowAddTask(false);
         });
-      setShowAddTask(false);
     }
   }
 
   return (
     <div className="add-task">
+      <RxCross1 onClick={() => setShowAddTask(false)} />
       <p>Tytuł</p>
       <input
         type="text"

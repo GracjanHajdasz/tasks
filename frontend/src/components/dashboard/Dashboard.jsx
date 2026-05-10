@@ -6,7 +6,7 @@ export default function Dashboard({ tasks, fetchTasks }) {
     tasks
       .filter((task) => task.status === status)
       .map((task) => (
-        <tr key={task.id}>
+        <div key={task.id}>
           <Task
             id={task.id}
             title={task.title}
@@ -15,29 +15,23 @@ export default function Dashboard({ tasks, fetchTasks }) {
             createdAt={task.created_at}
             fetchTasks={fetchTasks}
           />
-        </tr>
+        </div>
       ));
 
   return (
     <div className="dashboard">
-      <table className="todo">
-        <th>
-          <h2>Do zrobienia</h2>
-        </th>
+      <div className="todo column">
+        <h2>Do zrobienia</h2>
         {renderTasks("todo")}
-      </table>
-      <table className="in-progress">
-        <th>
-          <h2>W trakcie</h2>
-        </th>
+      </div>
+      <div className="in-progress column">
+        <h2>W trakcie</h2>
         {renderTasks("in_progress")}
-      </table>
-      <table className="done">
-        <th>
-          <h2>Gotowe</h2>
-        </th>
+      </div>
+      <div className="done column">
+        <h2>Gotowe</h2>
         {renderTasks("done")}
-      </table>
+      </div>
     </div>
   );
 }

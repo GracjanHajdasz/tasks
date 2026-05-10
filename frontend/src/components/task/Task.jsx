@@ -2,6 +2,8 @@ import "./Task.css";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import axios from "axios";
+import { useState } from "react";
+import EditTask from "../editTask/EditTask.jsx";
 
 export default function Task({
   id,
@@ -11,6 +13,8 @@ export default function Task({
   createdAt,
   fetchTasks,
 }) {
+  const [showEditTask, setShowEditTask] = useState(false);
+
   const handleStatusChange = (e) => {
     const newStatus = e.target.value;
     axios
@@ -45,10 +49,20 @@ export default function Task({
       <div>
         <p>Data utworzenia: {createdAt}</p>
         <div className="task-icons">
-          <FaPencilAlt />
+          <FaPencilAlt onClick={() => setShowEditTask(true)} />
           <FaRegTrashAlt onClick={deleteTask} />
         </div>
       </div>
+      {showEditTask && (
+        <EditTask
+          id={id}
+          title={title}
+          description={description}
+          status={status}
+          setShowEditTask={setShowEditTask}
+          fetchTasks={fetchTasks}
+        />
+      )}
     </div>
   );
 }

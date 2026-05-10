@@ -4,18 +4,30 @@
   align-items: center;
 }
 
-.dashboard table {
+.column {
   width: 32%;
+  border-radius: 12px;
+  -webkit-box-shadow: 4px 3px 15px 0px rgba(0, 0, 0, 0.79);
+  box-shadow: 4px 3px 15px 0px rgba(0, 0, 0, 0.79);
 }
 
-.todo th {
+.todo h2 {
   background-color: grey;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 0px;
 }
 
-.in-progress th {
+.in-progress h2 {
   background-color: aquamarine;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 0px;
 }
 
-.done th {
+.done h2 {
   background-color: green;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 0px;
 }
