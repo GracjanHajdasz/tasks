@@ -13,7 +13,7 @@ export default function Dashboard({ tasks, fetchTasks }) {
             description={task.description}
             status={task.status}
             createdAt={task.created_at}
-            onStatusChange={fetchTasks}
+            fetchTasks={fetchTasks}
           />
         </tr>
       ));

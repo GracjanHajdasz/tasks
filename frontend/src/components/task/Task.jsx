@@ -9,15 +9,22 @@ export default function Task({
   description,
   status,
   createdAt,
-  onStatusChange,
+  fetchTasks,
 }) {
   const handleStatusChange = (e) => {
     const newStatus = e.target.value;
     axios
       .patch(`http://localhost:8000/api/tasks/${id}`, { status: newStatus })
-      .then(() => onStatusChange())
+      .then(() => fetchTasks())
       .catch((err) => console.error("Błąd zmiany statusu:", err));
   };
+
+  function deleteTask() {
+    axios
+      .delete(`http://localhost:8000/api/tasks/${id}`)
+      .then(() => fetchTasks())
+      .catch((err) => console.error(err));
+  }
 
   return (
     <div className="task">
@@ -39,7 +46,7 @@ export default function Task({
         <p>Data utworzenia: {createdAt}</p>
         <div className="task-icons">
           <FaPencilAlt />
-          <FaRegTrashAlt />
+          <FaRegTrashAlt onClick={deleteTask} />
         </div>
       </div>
     </div>
