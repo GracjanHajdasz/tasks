@@ -1,6 +1,6 @@
 # Tasks
 
-Fullstackowa aplikacja do zarządzania zadaniami stworzona jako projekt rekrutacyjny. Umożliwia tworzenie, edytowanie, usuwanie oraz organizowanie zadań w trzech kolumnach statusu: **Do zrobienia**, **W trakcie** i **Gotowe**.
+Fullstackowa aplikacja do zarządzania zadaniami. Umożliwia tworzenie, edytowanie, usuwanie oraz organizowanie zadań w trzech kolumnach statusu: **Do zrobienia**, **W trakcie** i **Gotowe**.
 
 ---
 
