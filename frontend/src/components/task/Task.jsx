@@ -18,14 +18,16 @@ export default function Task({
   const handleStatusChange = (e) => {
     const newStatus = e.target.value;
     axios
-      .patch(`http://localhost:8000/api/tasks/${id}`, { status: newStatus })
+      .patch(`${import.meta.env.VITE_API_URL}/api/tasks/${id}`, {
+        status: newStatus,
+      })
       .then(() => fetchTasks())
       .catch((err) => console.error("Błąd zmiany statusu:", err));
   };
 
   function deleteTask() {
     axios
-      .delete(`http://localhost:8000/api/tasks/${id}`)
+      .delete(`${import.meta.env.VITE_API_URL}/api/tasks${id}`)
       .then(() => fetchTasks())
       .catch((err) => console.error(err));
   }

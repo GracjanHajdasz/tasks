@@ -10,7 +10,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = () => {
-    axios.get("http://localhost:8000/api/tasks").then((response) => {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/tasks`).then((response) => {
       setTasks(response.data);
     });
   };

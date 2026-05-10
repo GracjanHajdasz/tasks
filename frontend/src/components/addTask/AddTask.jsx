@@ -21,7 +21,10 @@ export default function AddTask({ setShowAddTask, fetchTasks }) {
     if (isTitleEmpty) setShowAlert(true);
     else {
       axios
-        .post("http://127.0.0.1:8000/api/tasks", { title, description })
+        .post(`${import.meta.env.VITE_API_URL}/api/tasks`, {
+          title,
+          description,
+        })
         .then((response) => {
           console.log(response);
           fetchTasks();
