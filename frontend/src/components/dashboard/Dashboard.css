@@ -4,18 +4,18 @@
   align-items: center;
 }
 
-.dashboard div {
+.dashboard table {
   width: 32%;
 }
 
-.todo {
+.todo th {
   background-color: grey;
 }
 
-.in-progress {
+.in-progress th {
   background-color: aquamarine;
 }
 
-.done {
+.done th {
   background-color: green;
 }
