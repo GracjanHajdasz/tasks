@@ -20,13 +20,13 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <Header setShowAddTask={setShowAddTask} />
       <Dashboard fetchTasks={fetchTasks} tasks={tasks} />
       {showAddTask && (
         <AddTask setShowAddTask={setShowAddTask} fetchTasks={fetchTasks} />
       )}
-    </>
+    </div>
   );
 }
 

@@ -1,33 +1,59 @@
 .dashboard {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 70px 40px;
+  background-color: #f8fafc;
 }
 
 .column {
-  width: 32%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 280px;
+  max-width: 33%;
   border-radius: 12px;
   -webkit-box-shadow: 4px 3px 15px 0px rgba(0, 0, 0, 0.79);
   box-shadow: 4px 3px 15px 0px rgba(0, 0, 0, 0.79);
+  background-color: #e8e8e8;
+  margin-top: 30px;
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
 }
 
 .todo h2 {
-  background-color: grey;
+  background-color: #64748b;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   margin-top: 0px;
+  padding-left: 10px;
 }
 
 .in-progress h2 {
-  background-color: aquamarine;
+  background-color: #3b82f6;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   margin-top: 0px;
+  padding-left: 10px;
 }
 
 .done h2 {
-  background-color: green;
+  background-color: #10b981;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   margin-top: 0px;
+  padding-left: 10px;
+}
+
+.todo {
+  background-color: white;
+}
+
+.in-progress {
+  background-color: #eff6ff;
+}
+
+.done {
+  background-color: #ecfdf5;
 }

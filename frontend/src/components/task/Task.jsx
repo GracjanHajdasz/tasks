@@ -30,6 +30,21 @@ export default function Task({
       .catch((err) => console.error(err));
   }
 
+  const createdDate = new Date(createdAt);
+  const formattedCreatedAt = Number.isNaN(createdDate.getTime())
+    ? createdAt
+    : `${createdDate.getDate().toString().padStart(2, "0")}.${(
+        createdDate.getMonth() + 1
+      )
+        .toString()
+        .padStart(2, "0")}.${createdDate.getFullYear()} ${createdDate
+        .getHours()
+        .toString()
+        .padStart(
+          2,
+          "0",
+        )}:${createdDate.getMinutes().toString().padStart(2, "0")}`;
+
   return (
     <div className="task">
       <h3>{title}</h3>
@@ -47,7 +62,7 @@ export default function Task({
         </select>
       </div>
       <div>
-        <p>Data utworzenia: {createdAt}</p>
+        <p>Data utworzenia: {formattedCreatedAt}</p>
         <div className="task-icons">
           <FaPencilAlt onClick={() => setShowEditTask(true)} />
           <FaRegTrashAlt onClick={deleteTask} />

@@ -1,4 +1,4 @@
-import "./EditTask.css";
+import "../addTask/AddTask.css";
 import { RxCross1 } from "react-icons/rx";
 import axios from "axios";
 import { useEffect, useState } from "react";
