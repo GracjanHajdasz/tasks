@@ -23,6 +23,7 @@ export default function AddTask({ setShowAddTask, fetchTasks }) {
         .post("http://127.0.0.1:8000/api/tasks", { title, description })
         .then((response) => {
           console.log(response);
+          fetchTasks();
         });
       setShowAddTask(false);
     }
