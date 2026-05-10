@@ -3,33 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Services\TaskService;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    //GET /api/tasks
-    public function index(){
-        return response()->json(Task::all());
+    public function __construct(private TaskService $taskService) {}
+
+    public function index()
+    {
+        return response()->json($this->taskService->getAll());
     }
 
-    //POST /api/tasks
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title'       => 'required|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'in:todo,in_progress,done',
+            'status'      => 'in:todo,in_progress,done',
         ]);
-        $task = Task::create($validated);
+
+        $task = $this->taskService->create($validated);
+
         return response()->json($task, 201);
     }
 
-     //GET /api/tasks/{id}
     public function show(Task $task)
     {
         return response()->json($task, 200);
     }
 
-    //PUT /api/tasks/{id}
     public function update(Request $request, Task $task)
     {
         $validated = $request->validate([
@@ -39,15 +42,14 @@ class TaskController extends Controller
             'due_date'    => 'nullable|date',
         ]);
 
-        $task->update($validated);
+        $task = $this->taskService->update($task, $validated);
 
         return response()->json($task, 200);
     }
 
-    //DELETE /api/tasks/{id}
     public function destroy(Task $task)
     {
-        $task->delete();
+        $this->taskService->delete($task);
 
         return response()->json(['message' => 'Zadanie usunięte'], 200);
     }
